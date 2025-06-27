@@ -105,10 +105,11 @@ user_input = st.text_area("", height=150)
 
 read_aloud = st.checkbox("🔊 Read message and prediction aloud", value = True)
 
+result = predict_message(model, vectorizer, user_input)
 
 if st.button("🔍Classify", use_container_width=True):
     if user_input.strip():
-        result = predict_message(model, vectorizer, user_input)
+        #result = predict_message(model, vectorizer, user_input)
         
         if result == "NOT SPAM":
             st.markdown(
@@ -127,5 +128,14 @@ if st.button("🔍Classify", use_container_width=True):
             speak_text(f"The message is {user_input}. It is classified as {result}")
     else:
         st.warning("Please enter a message to classify.")
+
+st.session_state["result_to_speak"] = f"The message is {user_input}. It is classified as {result}"
+
+if st.button("🔊 Speak Result"):
+    if "result_to_speak" in st.session_state:
+        speak_text(st.session_state["result_to_speak"])
+    else:
+        st.warning("No result to read yet. Please classify a message first.")
+
 
 
