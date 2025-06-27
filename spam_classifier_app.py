@@ -4,7 +4,6 @@ import nltk
 import os
 import string
 import re
-#import pyttsx3
 import streamlit.components.v1 as components
 
 from nltk.corpus import stopwords
@@ -77,13 +76,6 @@ def predict_message(model, vectorizer, message):
     result = "SPAM" if prediction == 1 else "NOT SPAM"
     return result
 
-# Function to speak text aloud
-#def speak_text(text):
-    #engine = pyttsx3.init()
-    #engine.say(text)
-    #engine.runAndWait()
-
-import streamlit.components.v1 as components
 
 def speak_directly_in_browser(text):
     escaped_text = text.replace('"', "'")
@@ -105,40 +97,33 @@ st.markdown("<p style='font-size: 24px;'>This tool is for classifying whether a 
 st.markdown("<label style='font-size: 24px;'>Please enter your message:</label>", unsafe_allow_html=True)
 user_input = st.text_area("", height=150)
 
-read_aloud = st.checkbox("🔊 Read message and prediction aloud", value = True)
+#read_aloud = st.checkbox("🔊 Read message and prediction aloud", value = True)
 
-result = predict_message(model, vectorizer, user_input)
-
+# After classification result is determined
 if st.button("🔍Classify", use_container_width=True):
     if user_input.strip():
-        #result = predict_message(model, vectorizer, user_input)
-        
+        result = predict_message(model, vectorizer, user_input)
+
+        # Display result
         if result == "NOT SPAM":
             st.markdown(
-            "<div style='background-color:#007acc; color:white; padding:10px; border-radius:5px;'>"
-            "<strong>✅ Prediction: NOT SPAM</strong>"
-            "</div>", unsafe_allow_html=True
+                "<div style='background-color:#007acc; color:white; padding:10px; border-radius:5px;'>"
+                "<strong>✅ Prediction: NOT SPAM</strong>"
+                "</div>", unsafe_allow_html=True
             )
         else:
             st.markdown(
-            "<div style='background-color:#f39c12; color:white; padding:10px; border-radius:5px;'>"
-            "<strong>❗ Prediction: SPAM</strong>"
-            "</div>", unsafe_allow_html=True
+                "<div style='background-color:#f39c12; color:white; padding:10px; border-radius:5px;'>"
+                "<strong>❗ Prediction: SPAM</strong>"
+                "</div>", unsafe_allow_html=True
             )
-        
-        if read_aloud:
-            speak_text(f"The message is {user_input}. It is classified as {result}")
+
+        # ✅ Save result in session state so it can be spoken later
+        st.session_state["result_to_speak"] = f"The message is {user_input}. It is classified as {result}"
     else:
+        st.session_state["result_to_speak"] = f"Please enter a message to classify."
         st.warning("Please enter a message to classify.")
 
-st.session_state["result_to_speak"] = f"The message is {user_input}. It is classified as {result}"
-
-#if st.button("🔊 Speak Result"):
+# ✅ Show speak button only if there is a result
 if "result_to_speak" in st.session_state:
-    #speak_text(st.session_state["result_to_speak"])
     speak_directly_in_browser(st.session_state["result_to_speak"])
-else:
-    st.warning("No result to read yet. Please classify a message first.")
-
-
-
