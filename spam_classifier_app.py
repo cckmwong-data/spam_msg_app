@@ -83,14 +83,16 @@ def predict_message(model, vectorizer, message):
     #engine.say(text)
     #engine.runAndWait()
 
-def speak_text(text):
-    js_code = f"""
-    <script>
-        var msg = new SpeechSynthesisUtterance("{text}");
-        window.speechSynthesis.speak(msg);
-    </script>
-    """
-    components.html(js_code)
+import streamlit.components.v1 as components
+
+def speak_directly_in_browser(text):
+    escaped_text = text.replace('"', "'")
+    components.html(f"""
+        <button onclick="window.speechSynthesis.speak(new SpeechSynthesisUtterance('{escaped_text}'))"
+                style="font-size:18px; padding:10px 20px; border-radius:8px; margin-top: 10px;">
+            🔊 Speak Result
+        </button>
+    """, height=80)
 
 
 # Custom title with larger font size
@@ -131,11 +133,12 @@ if st.button("🔍Classify", use_container_width=True):
 
 st.session_state["result_to_speak"] = f"The message is {user_input}. It is classified as {result}"
 
-if st.button("🔊 Speak Result"):
-    if "result_to_speak" in st.session_state:
-        speak_text(st.session_state["result_to_speak"])
-    else:
-        st.warning("No result to read yet. Please classify a message first.")
+#if st.button("🔊 Speak Result"):
+if "result_to_speak" in st.session_state:
+    #speak_text(st.session_state["result_to_speak"])
+    speak_directly_in_browser(st.session_state["result_to_speak"])
+else:
+    st.warning("No result to read yet. Please classify a message first.")
 
 
 
