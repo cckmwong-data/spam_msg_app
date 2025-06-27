@@ -3,6 +3,9 @@ import joblib
 import nltk
 import os
 import string
+import re
+import pyttsx3
+
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
@@ -24,8 +27,9 @@ vectorizer = joblib.load('tfidf_vectorizer.pkl')
 #Function for converting the message into tokens or individual words
 def text_processing(text):
     textList = []
-    text = text.lower() #change the text to lower case
-
+    #text = text.lower() #change the text to lower case
+    text = re.sub(r"@\S+|https?:\S+|http?:\S+|\S+@\S+", ' ', str(text).lower())
+    text = re.sub(r"[^a-z\s]", ' ', text)
     text = text.split() #divide the whole message into bite-sized words
 
     for i in text:
@@ -72,20 +76,46 @@ def predict_message(model, vectorizer, message):
     result = "SPAM" if prediction == 1 else "NOT SPAM"
     return result
 
-# Streamlit UI
-st.title("📩 Spam Message Classifier")
-st.write("This tool uses machine learning to classify whether a message is SPAM or NOT SPAM.")
+# Function to speak text aloud
+def speak_text(text):
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndWait()
 
-user_input = st.text_area("Enter your message:")
 
-if st.button("📨 Classify"):
+# Custom title with larger font size
+st.markdown("<h1 style='font-size: 54px;'>📩 Spam Message Classifier</h1>", unsafe_allow_html=True)
+
+# Custom subtitle
+st.markdown("<p style='font-size: 24px;'>This tool is for classifying whether a message is <strong>SPAM</strong> or <strong>NOT SPAM</strong>.</p>", unsafe_allow_html=True)
+
+# Custom text area label
+st.markdown("<label style='font-size: 24px;'>Please enter your message:</label>", unsafe_allow_html=True)
+user_input = st.text_area("", height=150)
+
+read_aloud = st.checkbox("🔊 Read message and prediction aloud", value = True)
+
+
+if st.button("🔍Classify", use_container_width=True):
     if user_input.strip():
         result = predict_message(model, vectorizer, user_input)
         
         if result == "NOT SPAM":
-            st.success(f"✅ Prediction: {result}")
+            st.markdown(
+            "<div style='background-color:#007acc; color:white; padding:10px; border-radius:5px;'>"
+            "<strong>✅ Prediction: NOT SPAM</strong>"
+            "</div>", unsafe_allow_html=True
+            )
         else:
-            st.error(f"❗ Prediction: {result}")
+            st.markdown(
+            "<div style='background-color:#f39c12; color:white; padding:10px; border-radius:5px;'>"
+            "<strong>❗ Prediction: SPAM</strong>"
+            "</div>", unsafe_allow_html=True
+            )
+        
+        if read_aloud:
+            speak_text(f"The message is {user_input}. It is classified as {result}")
     else:
         st.warning("Please enter a message to classify.")
+
 
