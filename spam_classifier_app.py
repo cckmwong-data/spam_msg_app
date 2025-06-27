@@ -4,7 +4,8 @@ import nltk
 import os
 import string
 import re
-import pyttsx3
+#import pyttsx3
+import streamlit.components.v1 as components
 
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -77,10 +78,19 @@ def predict_message(model, vectorizer, message):
     return result
 
 # Function to speak text aloud
+#def speak_text(text):
+    #engine = pyttsx3.init()
+    #engine.say(text)
+    #engine.runAndWait()
+
 def speak_text(text):
-    engine = pyttsx3.init()
-    engine.say(text)
-    engine.runAndWait()
+    js_code = f"""
+    <script>
+        var msg = new SpeechSynthesisUtterance("{text}");
+        window.speechSynthesis.speak(msg);
+    </script>
+    """
+    components.html(js_code)
 
 
 # Custom title with larger font size
