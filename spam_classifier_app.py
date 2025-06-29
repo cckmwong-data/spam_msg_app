@@ -96,8 +96,14 @@ st.markdown("<h1 style='font-size: 54px;'>📩 Spam Message Classifier</h1>", un
 # Custom subtitle
 st.markdown("<p style='font-size: 24px;'>This tool is for classifying whether a message is <strong>SPAM</strong> or <strong>NOT SPAM</strong>.</p>", unsafe_allow_html=True)
 
-# Custom text area label
-st.markdown("<label style='font-size: 24px;'>Please enter your message:</label>", unsafe_allow_html=True)
+col1, col2 = st.columns([8, 2])
+
+with col1:  
+    # Custom text area label
+    st.markdown("<label style='font-size: 24px;'>Please enter your message:</label>", unsafe_allow_html=True)
+with col2:
+    # Clear Text button — calls the function BEFORE text_area rerenders
+    st.button("🧹 Clear Text", on_click=clear_text)
 
 # Make sure it's initialized
 if "user_input" not in st.session_state:
@@ -106,37 +112,32 @@ if "user_input" not in st.session_state:
 # Text input area
 user_input = st.text_area("", key="user_input")
 
-col1, col2 = st.columns([8, 2])
+# After classification result is determined
+if st.button("🔍Classify", use_container_width=True):
+    if user_input.strip():
+        result = predict_message(model, vectorizer, user_input)
 
-with col1:
-    # After classification result is determined
-    if st.button("🔍Classify", use_container_width=True):
-        if user_input.strip():
-            result = predict_message(model, vectorizer, user_input)
-
-            # Display result
-            if result == "NOT SPAM":
-                st.markdown(
-                    "<div style='background-color:#007acc; color:white; padding:10px; border-radius:5px;'>"
-                    "<strong>✅ Prediction: NOT SPAM</strong>"
-                    "</div>", unsafe_allow_html=True
-                )
-            else:
-                st.markdown(
-                    "<div style='background-color:#f39c12; color:white; padding:10px; border-radius:5px;'>"
-                    "<strong>❗ Prediction: SPAM</strong>"
-                    "</div>", unsafe_allow_html=True
-                )
-
-            # ✅ Save result in session state so it can be spoken later
-            clean_input = str(user_input).replace("\n", "").replace("\r", "")
-            st.session_state["result_to_speak"] = f"The message is {clean_input}. It is classified as {result}"
+        # Display result
+        if result == "NOT SPAM":
+            st.markdown(
+                "<div style='background-color:#007acc; color:white; padding:10px; border-radius:5px;'>"
+                "<strong>✅ Prediction: NOT SPAM</strong>"
+                "</div>", unsafe_allow_html=True
+            )
         else:
-            st.session_state["result_to_speak"] = f"Please enter a message to classify."
-            st.warning("Please enter a message to classify.")
-with col2:
-    # Clear Text button — calls the function BEFORE text_area rerenders
-    st.button("🧹 Clear Text", on_click=clear_text)
+            st.markdown(
+                "<div style='background-color:#f39c12; color:white; padding:10px; border-radius:5px;'>"
+                "<strong>❗ Prediction: SPAM</strong>"
+                "</div>", unsafe_allow_html=True
+            )
+
+        # ✅ Save result in session state so it can be spoken later
+        clean_input = str(user_input).replace("\n", "").replace("\r", "")
+        st.session_state["result_to_speak"] = f"The message is {clean_input}. It is classified as {result}"
+    else:
+        st.session_state["result_to_speak"] = f"Please enter a message to classify."
+        st.warning("Please enter a message to classify.")
+
 
 # ✅ Show speak button only if there is a result
 if "result_to_speak" in st.session_state:
