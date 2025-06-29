@@ -119,7 +119,8 @@ if st.button("🔍Classify", use_container_width=True):
             )
 
         # ✅ Save result in session state so it can be spoken later
-        st.session_state["result_to_speak"] = f"The message is {user_input.strip()}. It is classified as {result}"
+        clean_input = str(user_input).replace("\n", "").replace("\r", "")
+        st.session_state["result_to_speak"] = f"The message is {clean_input}. It is classified as {result}"
     else:
         st.session_state["result_to_speak"] = f"Please enter a message to classify."
         st.warning("Please enter a message to classify.")
