@@ -95,9 +95,9 @@ st.markdown("<p style='font-size: 24px;'>This tool is for classifying whether a 
 
 # Custom text area label
 st.markdown("<label style='font-size: 24px;'>Please enter your message:</label>", unsafe_allow_html=True)
-user_input = st.text_area("", height=150)
 
-#read_aloud = st.checkbox("🔊 Read message and prediction aloud", value = True)
+# User input box
+user_input = st.text_area("Enter your message:", key="user_input")
 
 # After classification result is determined
 if st.button("🔍Classify", use_container_width=True):
@@ -119,7 +119,7 @@ if st.button("🔍Classify", use_container_width=True):
             )
 
         # ✅ Save result in session state so it can be spoken later
-        st.session_state["result_to_speak"] = f"The message is {user_input}. It is classified as {result}"
+        st.session_state["result_to_speak"] = f"The message is {user_input.strip()}. It is classified as {result}"
     else:
         st.session_state["result_to_speak"] = f"Please enter a message to classify."
         st.warning("Please enter a message to classify.")
