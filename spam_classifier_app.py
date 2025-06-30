@@ -91,7 +91,7 @@ def clear_text():
     st.session_state["user_input"] = ""
 
 # Custom title with larger font size
-st.markdown("<h1 style='font-size: 54px;'>Spam Checker</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='font-size: 54px;'>Spam Message Checker</h1>", unsafe_allow_html=True)
 
 # Custom subtitle
 st.markdown("<p style='font-size: 24px;'>This tool is for classifying if a text message is <strong>SPAM</strong> or <strong>NOT SPAM</strong>.</p>", unsafe_allow_html=True)
@@ -100,7 +100,7 @@ col1, col2 = st.columns([8, 2])
 
 with col1:  
     # Custom text area label
-    st.markdown("<label style='font-size: 24px;'>Enter your message:</label>", unsafe_allow_html=True)
+    st.markdown("<label style='font-size: 24px;'>Please enter your message:</label>", unsafe_allow_html=True)
 with col2:
     # Clear Text button — calls the function BEFORE text_area rerenders
     st.button("🧹 Clear Text", on_click=clear_text)
