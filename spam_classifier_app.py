@@ -91,7 +91,7 @@ def clear_text():
     st.session_state["user_input"] = ""
 
 # Custom title with larger font size
-st.markdown("<h1 style='font-size: 54px;'>📩 Spam Message Classifier</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='font-size: 54px;'>Spam Message Checker</h1>", unsafe_allow_html=True)
 
 # Custom subtitle
 st.markdown("<p style='font-size: 24px;'>This tool is for classifying whether a message is <strong>SPAM</strong> or <strong>NOT SPAM</strong>.</p>", unsafe_allow_html=True)
@@ -100,7 +100,7 @@ col1, col2 = st.columns([8, 2])
 
 with col1:  
     # Custom text area label
-    st.markdown("<label style='font-size: 24px;'>Please enter your message:</label>", unsafe_allow_html=True)
+    st.markdown("<label style='font-size: 24px;'>Please enter your text message:</label>", unsafe_allow_html=True)
 with col2:
     # Clear Text button — calls the function BEFORE text_area rerenders
     st.button("🧹 Clear Text", on_click=clear_text)
@@ -108,12 +108,13 @@ with col2:
 # Make sure it's initialized
 if "user_input" not in st.session_state:
     st.session_state["user_input"] = ""
+    st.session_state["result_to_speak"] = f"Please enter a message and press the Check button."
 
 # Text input area
 user_input = st.text_area("", key="user_input")
 
 # After classification result is determined
-if st.button("🔍Classify", use_container_width=True):
+if st.button("🔍Check", use_container_width=True):
     if user_input.strip():
         result = predict_message(model, vectorizer, user_input)
 
@@ -135,10 +136,14 @@ if st.button("🔍Classify", use_container_width=True):
         clean_input = str(user_input).replace("\n", "").replace("\r", "")
         st.session_state["result_to_speak"] = f"The message is {clean_input}. It is classified as {result}"
     else:
-        st.session_state["result_to_speak"] = f"Please enter a message to classify."
+        st.session_state["result_to_speak"] = f"lease enter a message and press the Check button."
         st.warning("Please enter a message to classify.")
 
+speak_directly_in_browser(st.session_state["result_to_speak"])
 
-# ✅ Show speak button only if there is a result
-if "result_to_speak" in st.session_state:
-    speak_directly_in_browser(st.session_state["result_to_speak"])
+import streamlit as st
+
+st.markdown(
+    'Suspect a scam text message? <a href="https://www.ncsc.gov.uk/collection/phishing-scams/report-scam-text-message" target="_blank">Learn what to do here</a>',
+    unsafe_allow_html=True
+)
