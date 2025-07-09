@@ -1,0 +1,29 @@
+name: Keep Streamlit App Alive
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # Runs every 60 minutes
+  workflow_dispatch:      # Allows manual triggering
+
+jobs:
+  ping-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      # Step 3: Install dependencies
+      - name: Install Python dependencies
+        run: pip install requests
+
+      # Step 4: Run the Python script
+      - name: Run ping script
+        run: python ping_streamlit.py
