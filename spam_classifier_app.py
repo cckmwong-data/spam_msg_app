@@ -1,3 +1,5 @@
+# -------------- Import libraries --------------
+
 import streamlit as st
 import joblib
 import nltk
@@ -9,6 +11,8 @@ import streamlit.components.v1 as components
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
+# -------------- Load saved models and data --------------
+
 # Ensure NLTK data is stored and accessed from a local folder (for Streamlit Cloud)
 nltk_data_dir = os.path.join(os.path.dirname(__file__), 'nltk_data')
 os.makedirs(nltk_data_dir, exist_ok=True)
@@ -19,9 +23,11 @@ nltk.data.path.append(nltk_data_dir)
 nltk.download('stopwords', download_dir=nltk_data_dir, quiet=True)
 nltk.download('wordnet', download_dir=nltk_data_dir, quiet=True)
 
-# Load model and vectorizer
+# Load model and vectorizer that we saved previously
 model = joblib.load('svm_spam_model.pkl')
 vectorizer = joblib.load('tfidf_vectorizer.pkl')
+
+# -------------- Functions --------------
 
 # Preprocessing functions
 #Function for converting the message into tokens or individual words
@@ -110,18 +116,21 @@ with col2:
     # Clear Text button
     st.button("🧹 Clear Text", on_click=clear_text)
 
-# Make sure it's initialized
+# Initialize session state variables if they do not exist
 if "user_input" not in st.session_state:
     st.session_state["user_input"] = ""
     st.session_state["result_to_speak"] = f"Please enter a message and press the Check button."
 
-# Text input area
+# Text input area and store in the session state
 user_input = st.text_area("", key="user_input")
 
-# After classification result is determined
+# remove any new line or carriage return characters of the input text
+clean_input = str(user_input).replace("\n", "").replace("\r", "")
+
+# Check button to classify the message
 if st.button("🔍Check", use_container_width=True):
-    if user_input.strip():
-        result = predict_message(model, vectorizer, user_input)
+    if user_input.strip(): # remove any whitespace of the input text
+        result = predict_message(model, vectorizer, user_input) # predict whether the msg is SPAM or NOT SPAM
 
         # Display result
         if result == "NOT SPAM":
@@ -137,15 +146,16 @@ if st.button("🔍Check", use_container_width=True):
                 "</div>", unsafe_allow_html=True
             )
 
-        # ✅ Save result in session state so it can be spoken later
-        clean_input = str(user_input).replace("\n", "").replace("\r", "")
+        # Save result in session state so it can be spoken later or issue a warning
         st.session_state["result_to_speak"] = f"The message is {clean_input}. It is classified as {result}"
     else:
         st.session_state["result_to_speak"] = f"lease enter a message and press the Check button."
         st.warning("Please enter a message to classify.")
 
+# Speak the result directly in the browser
 speak_directly_in_browser(st.session_state["result_to_speak"])
 
+# Link to report scam text messages
 st.markdown(
     'Suspect a scam text message? <a href="https://www.ncsc.gov.uk/collection/phishing-scams/report-scam-text-message" target="_blank">Learn what to do here</a>',
     unsafe_allow_html=True
