@@ -110,13 +110,13 @@ with col2:
     # Clear Text button
     st.button("🧹 Clear Text", on_click=clear_text)
 
-# Text input area
-user_input = st.text_area("", key="user_input")
-
 # Make sure it's initialized
 if "user_input" not in st.session_state:
     st.session_state["user_input"] = ""
     st.session_state["result_to_speak"] = f"Please enter a message and press the Check button."
+
+# Text input area
+user_input = st.text_area("", key="user_input")
 
 # After classification result is determined
 if st.button("🔍Check", use_container_width=True):
