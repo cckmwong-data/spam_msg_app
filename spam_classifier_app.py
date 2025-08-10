@@ -27,8 +27,9 @@ vectorizer = joblib.load('tfidf_vectorizer.pkl')
 #Function for converting the message into tokens or individual words
 def text_processing(text):
     textList = []
-    #text = text.lower() #change the text to lower case
+    # Removes usernames, links, and emails, replacing them with spaces and convert the text to lower case
     text = re.sub(r"@\S+|https?:\S+|http?:\S+|\S+@\S+", ' ', str(text).lower())
+    # remove anything other than letters 
     text = re.sub(r"[^a-z\s]", ' ', text)
     text = text.split() #divide the whole message into bite-sized words
 
@@ -76,9 +77,11 @@ def predict_message(model, vectorizer, message):
     result = "SPAM" if prediction == 1 else "NOT SPAM"
     return result
 
-
+# function for speaking text directly in the browser
 def speak_directly_in_browser(text):
+    # replace double quotes with single quotes  
     escaped_text = text.replace('"', "'")
+    # create a button that uses the Web Speech API to speak the text
     components.html(f"""
         <button onclick="window.speechSynthesis.speak(new SpeechSynthesisUtterance('{escaped_text}'))"
                 style="font-size:18px; padding:10px 20px; border-radius:8px; margin-top: 10px;">
@@ -86,9 +89,12 @@ def speak_directly_in_browser(text):
         </button>
     """, height=80)
 
-# Define a clear function
+# A function to clear the text box
 def clear_text():
     st.session_state["user_input"] = ""
+
+
+# -------------- UI Section --------------
 
 # Custom title with larger font size
 st.markdown("<h1 style='font-size: 54px;'>Spam Message Checker</h1>", unsafe_allow_html=True)
@@ -99,19 +105,18 @@ st.markdown("<p style='font-size: 24px;'>This tool is for classifying if a text 
 col1, col2 = st.columns([8, 2])
 
 with col1:  
-    # Custom text area label
     st.markdown("<label style='font-size: 24px;'>Please enter your message:</label>", unsafe_allow_html=True)
 with col2:
-    # Clear Text button — calls the function BEFORE text_area rerenders
+    # Clear Text button
     st.button("🧹 Clear Text", on_click=clear_text)
+
+# Text input area
+user_input = st.text_area("", key="user_input")
 
 # Make sure it's initialized
 if "user_input" not in st.session_state:
     st.session_state["user_input"] = ""
     st.session_state["result_to_speak"] = f"Please enter a message and press the Check button."
-
-# Text input area
-user_input = st.text_area("", key="user_input")
 
 # After classification result is determined
 if st.button("🔍Check", use_container_width=True):
