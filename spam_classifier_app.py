@@ -90,20 +90,7 @@ def speak_directly_in_browser(text):
     # create a button that uses the Web Speech API to speak the text
     components.html(f"""
         <button onclick="window.speechSynthesis.speak(new SpeechSynthesisUtterance('{escaped_text}'))"
-                style="
-                    font-size:18px;
-                    padding:12px 24px;
-                    border-radius:12px;
-                    margin-top: 10px;
-                    background-color: #000000;
-                    color: white;
-                    border: none;
-                    cursor: pointer;
-                    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
-                    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-                "
-                onmouseover="this.style.backgroundColor='#222222'; this.style.boxShadow='0px 6px 8px rgba(0,0,0,0.4)'"
-                onmouseout="this.style.backgroundColor='#000000'; this.style.boxShadow='0px 4px 6px rgba(0,0,0,0.3)'">
+                style="background-color: #000000; font-size:18px; border: none; padding:10px 20px; border-radius:8px; margin-top: 10px;">
             🔊 Speak Result
         </button>
     """, height=80)
