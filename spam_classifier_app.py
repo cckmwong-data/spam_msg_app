@@ -95,15 +95,15 @@ def speak_directly_in_browser(text):
                     padding:12px 24px;
                     border-radius:12px;
                     margin-top: 10px;
-                    background-color: #2B438C;
+                    background-color: #00339A;
                     color: white;
                     border: none;
                     cursor: pointer;
                     box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
                     transition: background-color 0.3s ease;
                 "
-                onmouseover="this.style.backgroundColor='#3C5ACF'"
-                onmouseout="this.style.backgroundColor='#2B438C'">
+                onmouseover="this.style.backgroundColor='#0036B1'"
+                onmouseout="this.style.backgroundColor='#00339A'">
             🔊 Speak Result
         </button>
     """, height=80)
