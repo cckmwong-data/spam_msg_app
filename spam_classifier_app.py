@@ -95,7 +95,7 @@ def speak_directly_in_browser(text):
                     padding:12px 24px;
                     border-radius:12px;
                     margin-top: 10px;
-                    background-color: #4CAF50;
+                    background-color: #2B438C;
                     color: white;
                     border: none;
                     cursor: pointer;
