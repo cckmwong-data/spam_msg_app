@@ -23,14 +23,14 @@ nltk.data.path.append(nltk_data_dir)
 nltk.download('stopwords', download_dir=nltk_data_dir, quiet=True)
 nltk.download('wordnet', download_dir=nltk_data_dir, quiet=True)
 
-# Load model and vectorizer that we saved previously
+# Load the saved SVM model
 model = joblib.load('svm_spam_model.pkl')
+# Load the saved vectorizer
 vectorizer = joblib.load('tfidf_vectorizer.pkl')
 
 # -------------- Functions --------------
 
-# Preprocessing functions
-#Function for converting the message into tokens or individual words
+# Preprocessing functions for converting the message into tokens or individual words
 def text_processing(text):
     textList = []
     # Removes usernames, links, and emails, replacing them with spaces and convert the text to lower case
@@ -46,7 +46,7 @@ def text_processing(text):
     return textList
 
 
-#Function to remove stopwords, words that are commonly used in English 
+# Function to remove stopwords, words that are commonly used in English 
 def remove_stopwords(text):
     textList = [] #create a new list
     for i in text:
@@ -55,7 +55,7 @@ def remove_stopwords(text):
             textList.append(i) #append individual tokens into a list
     return textList
 
-#Function to reduce words to their root form
+# Function to reduce words to their root form
 def lemmatize_text(text):
     lemmatizer = WordNetLemmatizer()
     textList = []
@@ -63,7 +63,7 @@ def lemmatize_text(text):
         textList.append(lemmatizer.lemmatize(i))
     return textList
 
-#A function for predicting whether the input message is SPAM or NOT SPAM
+# Function for predicting whether the input message is SPAM or NOT SPAM
 def predict_message(model, vectorizer, message):
     #Preprocess the input message
     message = text_processing(message) #change the message into tokens
@@ -83,19 +83,20 @@ def predict_message(model, vectorizer, message):
     result = "SPAM" if prediction == 1 else "NOT SPAM"
     return result
 
-# function for speaking text directly in the browser
+# Function for speaking text directly in the browser
 def speak_directly_in_browser(text):
     # replace double quotes with single quotes  
     escaped_text = text.replace('"', "'")
     # create a button that uses the Web Speech API to speak the text
     components.html(f"""
         <button onclick="window.speechSynthesis.speak(new SpeechSynthesisUtterance('{escaped_text}'))"
-                style="font-size:18px; padding:10px 20px; border-radius:8px; margin-top: 10px;">
+                style="font-size:18px; padding:10px 20px; border-radius:8px; margin-top: 10px; background-color: #4061B8;
+                color: white; white text; border: none; remove default border">
             🔊 Speak Result
         </button>
     """, height=80)
 
-# A function to clear the text box
+# Function to clear the text box
 def clear_text():
     st.session_state["user_input"] = ""
 
