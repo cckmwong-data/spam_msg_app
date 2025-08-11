@@ -99,15 +99,14 @@ def speak_directly_in_browser(text):
                     color: white;
                     border: none;
                     cursor: pointer;
-                    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
-                    transition: background-color 0.3s ease;
+                    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+                    transition: background-color 0.3s ease, box-shadow 0.3s ease;
                 "
-                onmouseover="this.style.backgroundColor='#222222'"
-                onmouseout="this.style.backgroundColor='#000000'">
+                onmouseover="this.style.backgroundColor='#222222'; this.style.boxShadow='0px 6px 8px rgba(0,0,0,0.4)'"
+                onmouseout="this.style.backgroundColor='#000000'; this.style.boxShadow='0px 4px 6px rgba(0,0,0,0.3)'">
             🔊 Speak Result
         </button>
     """, height=80)
-
 
 
 # Function to clear the text box
