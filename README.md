@@ -30,6 +30,10 @@ A machine learning–based SMS spam detection application that classifies messag
 Users continue to receive fraudulent and malicious SMS messages. Manually screening them is inefficient and exposes individuals to privacy and financial risks. This project addresses the need for an automated and accessible solution capable of classifying SMS messages reliably.
 
 ## Project Overview
+
+> **Note:**  
+> *This Streamlit application is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 24 hours, it may take some time to reactivate. In such cases, please click “xxxxx” to relaunch the application. Thank you for your patience.*
+
 This project implements a complete machine learning workflow including:
 1. Dataset acquisition (SMS spam dataset from Kaggle)
 2. Text normalization and preprocessing
