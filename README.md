@@ -2,7 +2,7 @@
 
 A machine learning–based SMS spam detection application that classifies messages as spam or ham (not spam) using Natural Language Processing (NLP) and a Support Vector Machine (SVM) model, deployed via Streamlit with optional text-to-speech output for accessibility.
 
-<img src="./images/app" width="" height="500">
+<img src="./images/app.png" width="" height="500">
 
 ## Highlights
 - End-to-end workflow from preprocessing to deployment.
