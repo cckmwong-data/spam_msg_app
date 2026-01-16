@@ -1,6 +1,6 @@
 # Accessible Spam Message Classifier with Auditory Feedback
 
-A machine learning–based SMS spam detection application that classifies messages as spam or ham (not spam) using Natural Language Processing (NLP) and a Support Vector Machine (SVM) model, deployed via Streamlit with optional text-to-speech output for accessibility.
+A machine learning–based SMS spam detection application that classifies messages as spam or ham (not spam) using Natural Language Processing (NLP) and a Support Vector Machine (SVM) model, deployed via Streamlit with text-to-speech output for accessibility.
 
 <img src="./images/app.png" width="" height="500">
 
@@ -27,36 +27,55 @@ A machine learning–based SMS spam detection application that classifies messag
 ✔ Accessibility-Aware UX Design
 
 ## Problem Statement
-Users continue to receive fraudulent and malicious SMS messages. Manually screening them is inefficient and exposes individuals to privacy and financial risks. This project addresses the need for an automated and accessible solution capable of classifying SMS messages reliably.
+Spam messages can pose significant risks such as phishing, scams, and misinformation, which disproportionately affect these vulnerable groups. This application aims not only to detect spam accurately but also to present the results in a clear, accessible way — including the option for the outcome to be read aloud, ensuring that users with limited vision or reading ability can easily understand the classification result.
 
 ## Project Overview
 
 > **Note:**  
-> *This Streamlit application is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 24 hours, it may take some time to reactivate. In such cases, please click “xxxxx” to relaunch the application. Thank you for your patience.*
+> *This Streamlit application is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 24 hours, it may take some time to reactivate. In such cases, please click the button saying “Yes, get this app back up!” to relaunch the application. Thank you for your patience.*
 
 This project implements a complete machine learning workflow including:
-1. Dataset acquisition (SMS spam dataset from Kaggle)
+1. Dataset acquisition ([SMS spam dataset from Kaggle](https://www.google.com/url?q=https%3A%2F%2Fwww.kaggle.com%2Fdatasets%2Fuciml%2Fsms-spam-collection-dataset%3Fresource%3Ddownload))
 2. Text normalization and preprocessing
 3. Exploratory data analysis
 4. TF-IDF vectorization for numeric representation
 5. SVM model training with hyperparameter tuning
 6. F1-score optimization due to class imbalance
 7. Export of trained classifier and vectorizer
-8. Streamlit deployment with optional auditory feedback
+8. Streamlit deployment with auditory feedback
 
 ## Key Insights & Impacts
 - Reduces user exposure to fraudulent SMS content by providing fast and automated classification.
-- Eliminates the need for manual message screening, improving scalability for consumer applications and communication platforms.
-- Optional text-to-speech feature enhances accessibility for visually impaired users or hands-free scenarios, demonstrating inclusive design considerations.
+- Text-to-speech functionality improves accessibility for populations such as older adults and individuals with visual impairments.
 - Provides instant and interpretable feedback, increasing user awareness of spam indicators and digital communication safety.
-- Demonstrates how lightweight NLP models can deliver meaningful value without extensive infrastructure.
+- Guidance on how to handle suspicious text messages, with links to the relevant government resources.
+
 
 ## Results Summary
-- **Classifier:** Support Vector Machine (SVM)
-- **Feature Extraction:** TF-IDF Vectorization
-- **Primary Metric:** F1-Score (selected due to class imbalance)
-- **Outcome:** SVM achieved highest validation F1-score among evaluated configurations
-- **Artifacts Exported:** `svm_spam_model.pkl`, `tfidf_vectorizer.pkl`
+
+The spam detection model was evaluated on a held-out test dataset.
+
+**Model Configuration**
+- Classifier: Support Vector Machine (SVM)
+- Feature Extraction: TF-IDF
+
+**Performance Metrics**
+- Primary F1 Score: 0.92 (test set)
+
+**Confusion Matrix**
+|               | Predicted: Ham | Predicted: Spam |
+|---------------|----------------|-----------------|
+| Actual: Ham   | 897            | 7               |
+| Actual: Spam  | 16             | 133             |
+
+**Classification Report (Weighted Averages)**
+- Precision: 0.98
+- Recall: 0.98
+- F1 Score: 0.98
+
+> *Notes:
+> Results reflect evaluation on a static dataset. Real-world performance may vary depending on the nature of user-provided input.*
+
 
 ## Stages of Development
 1. Data Loading and Inspection  
@@ -78,15 +97,6 @@ This project implements a complete machine learning workflow including:
 - **Pandas / NumPy**
 - **Matplotlib**
 - **Streamlit**
-- **gTTS / pyttsx3** (for text-to-speech functionality)
 
-## Streamlit Application
-The Streamlit application supports:
-- User input for message classification
-- Instant spam or ham prediction
-- Optional auditory feedback via text-to-speech
-
-### Run Locally
-```bash
-streamlit run app.py
-
+## Author
+Carmen Wong
