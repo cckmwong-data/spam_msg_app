@@ -27,7 +27,7 @@ A machine learning–based SMS spam detection application that classifies messag
 ✔ Accessibility-Aware UX Design (text-to-speech)
 
 ## Problem Statement
-Spam messages can pose significant risks such as phishing, scams, and misinformation, which disproportionately affect these vulnerable groups. This application aims not only to detect spam accurately but also to present the results in a clear, accessible way — including the option for the outcome to be read aloud, ensuring that users with limited vision or reading ability can easily understand the classification result.
+Spam messages can pose significant risks such as phishing, scams, and misinformation, which disproportionately affect vulnerable groups. This application aims not only to detect spam accurately but also to present the results in a clear, accessible way — including the option for the outcome to be read aloud, ensuring that users with limited vision or reading ability can easily understand the classification result.
 
 ## Project Overview
 
@@ -74,7 +74,7 @@ The spam detection model was evaluated on a held-out test dataset.
 - F1 Score: 0.98
 
 > *Notes:
-> Results reflect evaluation on a static dataset. Real-world performance may vary depending on the nature of user-provided input.*
+> Results reflect evaluation on a static [dataset](https://www.google.com/url?q=https%3A%2F%2Fwww.kaggle.com%2Fdatasets%2Fuciml%2Fsms-spam-collection-dataset%3Fresource%3Ddownload)). Real-world performance may vary depending on the nature of user-provided input.*
 
 
 ## Stages of Development
