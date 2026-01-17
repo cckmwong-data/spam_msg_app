@@ -1,6 +1,6 @@
 # Accessible Spam Message Classifier with Auditory Feedback
 
-A machine learning–based SMS spam detection application that classifies messages as spam or ham (not spam) using Natural Language Processing (NLP) and a Support Vector Machine (SVM) model, deployed via Streamlit with text-to-speech output for accessibility.
+A machine learning–based SMS spam detection application that classifies messages as spam or ham (not spam) using **Natural Language Processing (NLP)** and a **Support Vector Machine (SVM)** model, deployed via Streamlit with text-to-speech output for accessibility.
 
 <img src="./images/app.png" width="" height="500">
 
