@@ -44,6 +44,10 @@ This project implements a complete machine learning workflow including:
 7. Export of trained classifier and vectorizer
 8. Streamlit deployment with auditory feedback
 
+#### Class Imbalance of the Dataset:
+
+<img src="./images/data.png" width="" height="500">
+
 ## Key Insights & Impacts
 - Reduces user exposure to fraudulent SMS content by providing fast and automated classification.
 - Text-to-speech functionality improves accessibility for populations such as older adults and individuals with visual impairments.
@@ -90,11 +94,10 @@ The spam detection model was evaluated on a held-out test dataset.
 10. Packaging for Demonstration and Reuse
 
 ## Technologies Used
-- **Python**
 - **Scikit-Learn**
 - **NLTK**
 - **Joblib**
-- **Pandas / NumPy**
+- **Pandas**
 - **Matplotlib**
 - **Streamlit**
 
