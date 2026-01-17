@@ -8,7 +8,7 @@ A machine learning–based SMS spam detection application that classifies messag
 - End-to-end workflow from preprocessing to deployment.
 - TF-IDF vectorization for text feature extraction.
 - SVM classifier optimized and stratifying train-test split for imbalanced data.
-- Exported model and vectorizer artifacts for reproducible inference.
+- Exported model and vectorizer artifacts for reproducible inference (joblib).
 - Streamlit application with accessible user interaction and audio output.
 
 ## Skills Demonstrated
@@ -88,7 +88,7 @@ The spam detection model was evaluated on a held-out test dataset.
 4. TF-IDF Feature Engineering  
 5. Model Training and Hyperparameter Tuning  
 6. Model Validation and Metric Comparison  
-7. Artifact Serialization  
+7. Artifact Serialization
 8. Streamlit Application Development  
 9. Accessibility Enhancement (Text-to-Speech)  
 10. Packaging for Demonstration and Reuse
