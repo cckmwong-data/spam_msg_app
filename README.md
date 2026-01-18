@@ -53,7 +53,7 @@ This project implements a complete machine learning workflow including:
 The following design choices were made to address data imbalance, optimize feature representation, and ensure deployability:
 - Chose TF-IDF over count vectors due to sparse representation advantages
 - Selected SVM as classifier due to better margin performance on sparse text data
-- Used stratified train-test split and F1 score to address class imbalance
+- Used stratified train-test split and F1 score (balancing precision and recall for the minority spam class) to address class imbalance
 
 
 ## Key Insights & Impacts
