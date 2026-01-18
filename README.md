@@ -48,6 +48,14 @@ This project implements a complete machine learning workflow including:
 
 <img src="./images/data.png" width="" height="500">
 
+
+## Key Technical Decisions
+The following design choices were made to address data imbalance, optimize feature representation, and ensure deployability:
+- Chose TF-IDF over count vectors due to sparse representation advantages
+- Selected SVM as classifier due to better margin performance on sparse text data
+- Used stratified train-test split and F1 score to address class imbalance
+
+
 ## Key Insights & Impacts
 - Reduces user exposure to fraudulent SMS content by providing fast and automated classification.
 - Text-to-speech functionality improves accessibility for populations such as older adults and individuals with visual impairments.
