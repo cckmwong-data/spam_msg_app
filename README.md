@@ -27,7 +27,7 @@ A machine learning–based [SMS spam detection application](https://spammsgcheck
 ✔ Accessibility-Aware UX Design (Text-to-Speech)
 
 ## Problem Statement
-Spam messages can pose significant risks such as phishing, scams, and misinformation, which disproportionately affect vulnerable groups. This application aims not only to detect spam accurately but also to present the results in a clear, accessible way — including the option for the outcome to be read aloud, ensuring that users with limited vision or reading ability can easily understand the classification result.
+Spam messages can pose significant risks such as phishing, scams, and misinformation, which disproportionately affect vulnerable groups. This [application](https://spammsgcheck.streamlit.app/) aims not only to detect spam accurately but also to present the results in a clear, accessible way — including the option for the outcome to be read aloud, ensuring that users with limited vision or reading ability can easily understand the classification result.
 
 ## Project Overview
 
