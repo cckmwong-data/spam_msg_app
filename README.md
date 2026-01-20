@@ -34,7 +34,7 @@ Spam messages can pose significant risks such as phishing, scams, and misinforma
 ## Project Overview
 
 > **Note:**  
-> *This Streamlit application is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 24 hours, it may take some time to reactivate. In such cases, please click the button saying “Yes, get this app back up!” to relaunch the application. Thank you for your patience.*
+> *This Streamlit application is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 12 hours, it may take some time to reactivate. In such cases, please click the button saying “Yes, get this app back up!” to relaunch the application. Thank you for your patience.*
 
 This project implements a complete machine learning workflow including:
 1. Dataset acquisition ([SMS spam dataset from Kaggle](https://www.google.com/url?q=https%3A%2F%2Fwww.kaggle.com%2Fdatasets%2Fuciml%2Fsms-spam-collection-dataset%3Fresource%3Ddownload))
