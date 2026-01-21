@@ -1,19 +1,10 @@
 # Accessible Spam Message Classifier
 
-A machine learning–based [SMS spam detection application](https://spammsgcheck.streamlit.app/) that classifies messages as spam or ham (not spam) using **Natural Language Processing (NLP)** and a **Support Vector Machine (SVM)** model, deployed via Streamlit with text-to-speech output for accessibility.
+An end-to-end machine learning–based [SMS spam detection application](https://spammsgcheck.streamlit.app/) that classifies messages as spam or ham (not spam) using **Natural Language Processing (NLP)** and a **Support Vector Machine (SVM)** model, deployed via Streamlit with text-to-speech output for accessibility.
 
 *Please click [here](https://youtu.be/EwgdOBuiui4) for video demo.*
 
 <img src="./images/app.png" width="" height="500">
-
----
-
-## Highlights
-- *End-to-end* workflow from preprocessing to deployment.
-- **TF-IDF vectorization** for text feature extraction.
-- **SVM classifier** optimized and stratifying train-test split for imbalanced data.
-- Exported model and vectorizer for reproducible inference (joblib).
-- [Streamlit application](https://spammsgcheck.streamlit.app/) with accessible user interaction and audio output.
 
 ---
 
@@ -42,22 +33,18 @@ Spam messages can pose significant risks such as phishing, scams, and misinforma
 ## Project Overview
 
 > **Note:**  
-> *This Streamlit application is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 12 hours, it may take some time to reactivate. In such cases, please click the button saying “Yes, get this app back up!” to relaunch the application. Thank you for your patience.*
+> *This [Streamlit application](https://spammsgcheck.streamlit.app/) is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 12 hours, it may take some time to reactivate. In such cases, please click the button saying “Yes, get this app back up!” to relaunch the application. Thank you for your patience.*
 
 This project focuses on building an accessible SMS spam detection tool.
 
-- Applies robust natural language processing (NLP) techniques for message cleaning and linguistic normalization.
-- Incorporates TF-IDF vector-based feature representations suitable for linear classification.
-- Employs a Support Vector Machine classifier optimized for imbalanced classification performance.
-- Prioritizes F1 score and predictive reliability over simple accuracy due to inherent class skew in spam datasets.
+- Applies robust **natural language processing (NLP)** techniques for message cleaning and linguistic normalization.
+- Incorporates **TF-IDF vector-based** feature representations suitable for linear classification.
+- Employs a **Support Vector Machine classifier** optimized for imbalanced classification performance.
+- Prioritizes **F1 score** and predictive reliability over simple accuracy due to inherent class skew in spam datasets.
 - Includes serialized model artifacts (classifier + vectorizer) for reproducible inference.
 - Provides an intuitive browser-based interface implemented in Streamlit.
 - Supports auditory output for accessibility, enabling predictions to be spoken directly in the browser.
 - Offers user guidance for identifying and reporting suspicious SMS messages.
-
-#### Class Imbalance of the Dataset:
-
-<img src="./images/data.png" width="" height="500">
 
 ---
 
@@ -66,6 +53,11 @@ The following design choices were made to address *data imbalance*, optimize fea
 - Chose TF-IDF over count vectors due to sparse representation advantages.
 - Selected SVM as classifier due to better margin performance on sparse text data.
 - Used stratified train-test split and F1 score (balancing precision and recall for the minority spam class) to address class imbalance.
+
+
+#### Class Imbalance of the Dataset:
+
+<img src="./images/data.png" width="" height="500">
 
 ---
 
