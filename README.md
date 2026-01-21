@@ -116,15 +116,5 @@ The project was developed in sequential stages, spanning dataset preparation, mo
 
 ---
 
-## Technologies Used
-- **Scikit-Learn**
-- **NLTK**
-- **Joblib**
-- **Pandas**
-- **Matplotlib**
-- **Streamlit**
-
----
-
 ## Author
 Carmen Wong
