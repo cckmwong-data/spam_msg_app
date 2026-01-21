@@ -99,7 +99,7 @@ The spam detection model was evaluated on a held-out test dataset.
 
 ---
 
-## Stages of Development
+## Development Pipeline
 The project was developed in sequential stages, spanning dataset preparation, model building, and application deployment:
 
 1. **Data Acquisition and Exploratory Analysis**: Collected a labeled SMS dataset for binary spam classification. Performed exploratory analysis to understand class distribution and linguistic patterns.
