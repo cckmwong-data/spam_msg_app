@@ -9,6 +9,9 @@ An end-to-end machine learning–based [SMS spam detection application](https://
 ---
 
 ## Skills Demonstrated
+
+✔ Built a full pipeline from raw dataset to a deployed, interactive spam message checker interface
+
 ✔ **NLP** and **Feature Engineering**
 
 ✔ **Supervised Machine Learning (SVM)**
