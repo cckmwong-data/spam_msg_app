@@ -33,7 +33,7 @@ Spam messages can pose significant risks such as phishing, scams, and misinforma
 
 ---
 
-## Project Overview
+## Overview
 
 > **Note:**  
 > *This [Streamlit application](https://spammsgcheck.streamlit.app/) is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 12 hours, it may take some time to reactivate. In such cases, please click the button saying “Yes, get this app back up!” to relaunch the application. Thank you for your patience.*
