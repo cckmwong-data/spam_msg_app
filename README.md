@@ -50,8 +50,8 @@ This project focuses on building an accessible SMS spam detection tool.
 
 ## Key Technical Decisions
 The following design choices were made to address *data imbalance*, optimize feature representation, and ensure deployability:
-- Chose TF-IDF over count vectors due to sparse representation advantages.
-- Selected SVM as classifier due to better margin performance on sparse text data.
+- Chose TF-IDF over count vectors, as it captures term importance relative to corpus and less bias toward frequent ham vocabulary.
+- Selected SVM as classifier (vs. logistic regression) due to better margin performance on high-dimensional sparse text data.
 - Used stratified train-test split and F1 score (balancing precision and recall for the minority spam class) to address class imbalance.
 
 
