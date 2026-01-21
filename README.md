@@ -9,7 +9,7 @@ A machine learning–based [SMS spam detection application](https://spammsgcheck
 ---
 
 ## Highlights
-- **End-to-end** workflow from preprocessing to deployment.
+- *End-to-end* workflow from preprocessing to deployment.
 - **TF-IDF vectorization** for text feature extraction.
 - **SVM classifier** optimized and stratifying train-test split for imbalanced data.
 - Exported model and vectorizer for reproducible inference (joblib).
