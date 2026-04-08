@@ -1,6 +1,6 @@
 # Accessible Spam Message Classifier
 
-An end-to-end machine learning–based [SMS spam detection application](https://spammsgcheck.streamlit.app/) that classifies messages as spam or ham (not spam) using **Natural Language Processing (NLP)** and a **Support Vector Machine (SVM)** model, deployed via Streamlit with text-to-speech output for accessibility.
+An end-to-end machine learning–based [SMS spam detection application](https://spammsgcheck.streamlit.app/) that classifies messages as spam or ham (i.e. not spam) using **Natural Language Processing (NLP)** and a **Support Vector Machine (SVM)** model, deployed via Streamlit with text-to-speech output for accessibility.
 
 *Please click [here](https://youtu.be/EwgdOBuiui4) for video demo.*
 
