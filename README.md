@@ -89,12 +89,12 @@ The spam detection model was evaluated on a held-out test dataset.
 | Actual: Ham   | 897            | 7               |
 | Actual: Spam  | 16             | 133             |
 
-<img src="./images/classification_report.png" width="" height="200">
-
 **Classification Report (Weighted Averages)**
 - Precision: 0.98
 - Recall: 0.98
 - F1 Score: 0.98
+
+<img src="./images/classification_report.png" width="" height="200">
 
 > *Notes:
 > Results reflect evaluation on a static [dataset](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset?resource=download). Real-world performance may vary depending on the nature of user-provided input.*
