@@ -89,8 +89,9 @@ The spam detection model was evaluated on a held-out test dataset.
 | Actual: Ham   | 897            | 7               |
 | Actual: Spam  | 16             | 133             |
 
+<img src="./images/classification_report.png" width="" height="300">
+
 **Classification Report (Weighted Averages)**
-<img src="./images/classification_report.png" width="" height="500">
 - Precision: 0.98
 - Recall: 0.98
 - F1 Score: 0.98
