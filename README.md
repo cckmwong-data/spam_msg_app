@@ -41,7 +41,7 @@ Spam messages can pose significant risks such as phishing, scams, and misinforma
 This project focuses on building an accessible SMS spam detection tool.
 
 - Applies robust **natural language processing (NLP)** techniques for message cleaning and linguistic normalization.
-- Incorporates **TF-IDF vector-based** feature representations suitable for linear classification.
+- Incorporates **TF-IDF vector-based** feature representations.
 - Employs a **Support Vector Machine classifier** optimized for imbalanced classification performance.
 - Prioritizes **F1 score** and predictive reliability over simple accuracy due to inherent class skew in spam datasets.
 - Includes serialized model artifacts (classifier + vectorizer) for reproducible inference.
