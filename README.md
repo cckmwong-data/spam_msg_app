@@ -112,7 +112,7 @@ The project was developed in sequential stages, spanning dataset preparation, mo
 
 5. **User Interface Development**: Developed an interactive UI using Streamlit, enabling message input, classification, and feedback display. Additional features include text-to-speech output, user warnings, and contextual user guidance (e.g., scam reporting links).
 
-6. **Deployment and Runtime Optimization**: Packaged the model, vectorizer, and NLTK assets to support reproducible execution in hosted environments. Added dynamic NLTK download handling and local asset paths to support deployment under Streamlit Cloud constraints.
+6. **Deployment and Runtime Optimization**: Packaged the model, vectorizer, and NLTK assets to support execution in hosted environments. Added dynamic NLTK download handling and local asset paths to support deployment under Streamlit Cloud constraints.
 
 ---
 
