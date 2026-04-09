@@ -95,7 +95,7 @@ The spam detection model was evaluated on a held-out test dataset.
 - F1 Score: 0.98
 
 > *Notes:
-> Results reflect evaluation on a static [dataset](https://www.google.com/url?q=https%3A%2F%2Fwww.kaggle.com%2Fdatasets%2Fuciml%2Fsms-spam-collection-dataset%3Fresource%3Ddownload)). Real-world performance may vary depending on the nature of user-provided input.*
+> Results reflect evaluation on a static [dataset](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset?resource=download). Real-world performance may vary depending on the nature of user-provided input.*
 
 ---
 
