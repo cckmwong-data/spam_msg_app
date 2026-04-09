@@ -104,11 +104,11 @@ The project was developed in sequential stages, spanning dataset preparation, mo
 
 1. **Data Acquisition and Exploratory Analysis**: Collected a labeled SMS dataset for binary spam classification. Performed exploratory analysis to understand class distribution and linguistic patterns.
 
-2. **Text Preprocessing Pipeline Construction**: Designed a reproducible preprocessing pipeline for message normalization and token cleaning. This included user and URL removal, case folding, non-alphabet filtering, stopword removal, and lemmatization, as later implemented in the application functions
+2. **Text Preprocessing Pipeline Construction**: Designed a preprocessing pipeline for message normalization and token cleaning. This included user and URL removal, case folding, non-alphabet filtering, stopword removal, and lemmatization, as later implemented in the application functions
 
 3. **Feature Engineering Using TF-IDF Vectorization**: Utilized a TF-IDF vectorizer to transform normalized text into sparse feature vectors suitable for linear classifiers. The trained vectorizer was serialized as tfidf_vectorizer.pkl for inference alignment with the application code.
 
-4. **Model Training and Selection**: Trained a Support Vector Machine (SVM) classifier for binary categorization of messages as spam or not spam.
+4. **Model Training and Selection**: Trained a Support Vector Machine (SVM) classifier and selected the best model which has parameters with the maximized F1 score.
 
 5. **User Interface Development**: Developed an interactive UI using Streamlit, enabling message input, classification, and feedback display. Additional features include text-to-speech output, user warnings, and contextual user guidance (e.g., scam reporting links).
 
