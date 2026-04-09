@@ -10,7 +10,7 @@ An end-to-end machine learning–based [SMS spam detection application](https://
 
 ## Skills Demonstrated
 
-✔ Built a full pipeline from raw dataset to a deployed, interactive spam message checker interface
+✔ Built a full pipeline from [raw dataset (from Kaggle)](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset?resource=download) to a deployed, interactive spam message checker interface
 
 ✔ **NLP** and **Feature Engineering**
 
