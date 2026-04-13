@@ -55,7 +55,7 @@ This project focuses on building an accessible SMS spam detection tool.
 The following design choices were made to address *data imbalance*, optimize feature representation, and ensure deployability:
 - Chose TF-IDF over count vectors, as it captures term importance relative to corpus and less bias toward frequent ham vocabulary.
 - Selected SVM as classifier (vs. logistic regression) due to better margin performance on high-dimensional sparse text data.
-- Used stratified train-test split and F1 score (balancing precision and recall for the minority spam class) to address class imbalance.
+- Used stratified train-test split, `class_weight='balanced'`argument (higher penalty for minority errors), F1 score (balancing precision and recall for the minority spam class) to address class imbalance.
 
 
 #### Class Imbalance of the Dataset:
