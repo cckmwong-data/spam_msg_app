@@ -8,6 +8,14 @@ An end-to-end machine learning–based [SMS spam detection application](https://
 
 ---
 
+## Key Insights & Impacts
+- Reduces user exposure to fraudulent SMS content by providing fast and automated classification.
+- *Text-to-speech* functionality improves accessibility for populations such as older adults and individuals with visual impairments.
+- Provides instant and interpretable feedback, increasing user awareness of spam indicators and digital communication safety.
+- Guidance on how to handle suspicious text messages, with links to the relevant government resources.
+
+---
+
 ## Skills Demonstrated
 
 ✔ Built a full pipeline from [raw dataset (from Kaggle)](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset?resource=download) to a deployed, interactive spam message checker interface
@@ -28,15 +36,18 @@ An end-to-end machine learning–based [SMS spam detection application](https://
 
 ---
 
+## Technical Notes
+
+> *This [Streamlit application](https://creditscoringprediction2.streamlit.app/) is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 12 hours, it may take some time to reactivate. In such cases, please click the button saying “Yes, get this app back up!” to relaunch the application. Thank you for your patience.*
+
+---
+
 ## Problem Statement
 Spam messages can pose significant risks such as phishing, scams, and misinformation, which disproportionately affect vulnerable groups. This [application](https://spammsgcheck.streamlit.app/) aims not only to detect spam accurately but also to present the results in a clear, accessible way — including the option for the outcome to be read aloud, ensuring that users with limited vision or reading ability can easily understand the classification result.
 
 ---
 
 ## Overview
-
-> **Note:**  
-> *This [Streamlit application](https://spammsgcheck.streamlit.app/) is hosted on the free Tier of Streamlit Community Cloud. If the app has been idle for more than 12 hours, it may take some time to reactivate. In such cases, please click the button saying “Yes, get this app back up!” to relaunch the application. Thank you for your patience.*
 
 This project focuses on building an accessible SMS spam detection tool.
 
@@ -62,14 +73,6 @@ The following design choices were made to address *data imbalance*, optimize fea
 #### Class Imbalance of the Dataset:
 
 <img src="./images/data.png" width="" height="500">
-
----
-
-## Key Insights & Impacts
-- Reduces user exposure to fraudulent SMS content by providing fast and automated classification.
-- *Text-to-speech* functionality improves accessibility for populations such as older adults and individuals with visual impairments.
-- Provides instant and interpretable feedback, increasing user awareness of spam indicators and digital communication safety.
-- Guidance on how to handle suspicious text messages, with links to the relevant government resources.
 
 ---
 
