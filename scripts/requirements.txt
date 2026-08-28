@@ -1,5 +1,4 @@
-Python 3.12
-scikit-learn 1.5.1
+streamlit
+scikit-learn==1.5.1
 joblib
 nltk
-streamlit
