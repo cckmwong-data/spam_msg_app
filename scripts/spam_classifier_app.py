@@ -114,6 +114,9 @@ def clear_text():
 
 # -------------- UI Section --------------
 
+import sklearn
+import sys
+
 st.write("Python:", sys.version)
 st.write("scikit-learn:", sklearn.__version__)
 st.write("Model:", type(model))
