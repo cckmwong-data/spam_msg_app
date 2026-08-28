@@ -114,6 +114,10 @@ def clear_text():
 
 # -------------- UI Section --------------
 
+st.write("Python:", sys.version)
+st.write("scikit-learn:", sklearn.__version__)
+st.write("Model:", type(model))
+
 # Custom title with larger font size
 st.markdown("<h1 style='font-size: 54px;'>Spam Message Checker</h1>", unsafe_allow_html=True)
 
